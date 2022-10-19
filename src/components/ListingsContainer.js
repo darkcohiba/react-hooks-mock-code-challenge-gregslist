@@ -1,11 +1,25 @@
 import React from "react";
-// import ListingCard from "./ListingCard";
+import ListingCard from "./ListingCard";
 
-function ListingsContainer() {
+function ListingsContainer({listings}) {
+
+  console.log(listings)
+
+
+
+  const listingsCards = listings.map(listing =>(
+    <ListingCard 
+      id={listing.id}
+      key={listing.id}
+      description={listing.description}
+      image={listing.image}
+      location={listing.location}
+    />
+  ))
   return (
     <main>
       <ul className="cards">
-        {/* use the ListingCard component to display listings */}
+        {listingsCards}
       </ul>
     </main>
   );
